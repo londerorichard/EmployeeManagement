@@ -40,4 +40,44 @@ public class FuncionarioComissionadoTest {
 
         assertEquals(300.00, funcionario.calcularTributavel(), 0.001);
     }
+
+    @Test
+    void shouldCalculateRemunerationWithCommission() {
+        FuncionarioComissionado funcionario = new FuncionarioComissionado(
+                1, "Maria Silva", "111.444.777-35",
+                2000.00, 10000.00, 10.0
+        );
+
+        assertEquals(3000.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithDifferentCommissionPercentage() {
+        FuncionarioComissionado funcionario = new FuncionarioComissionado(
+                2, "Joao Silva", "529.982.247-25",
+                2000.00, 10000.00, 15.0
+        );
+
+        assertEquals(3500.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithoutSales() {
+        FuncionarioComissionado funcionario = new FuncionarioComissionado(
+                3, "Ana Souza", "111.444.777-35",
+                2000.00, 0.00, 10.0
+        );
+
+        assertEquals(2000.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithoutBaseSalary() {
+        FuncionarioComissionado funcionario = new FuncionarioComissionado(
+                4, "Carlos Silva", "529.982.247-25",
+                0.00, 10000.00, 10.0
+        );
+
+        assertEquals(1000.00, funcionario.calcularRemuneracao(), 0.001);
+    }
 }

@@ -25,4 +25,15 @@ public class FuncionarioCLT extends Funcionario implements Tributavel {
     public double calcularTributavel() {
         return getSalarioBase() * 0.10;
     }
+
+    @Override
+    public double calcularRemuneracao() {
+        double totalBenefits = this.getBeneficios()
+                .values()
+                .stream()
+                .mapToDouble(Double::doubleValue)
+                .sum();
+
+        return this.getSalarioBase() + totalBenefits;
+    }
 }

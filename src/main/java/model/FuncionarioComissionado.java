@@ -29,4 +29,9 @@ public class FuncionarioComissionado extends Funcionario implements Tributavel {
 
         return remuneracao * 0.10;
     }
+
+    @Override
+    public double calcularRemuneracao() {
+        return this.getSalarioBase() + vendas * (percentualComissao / 100);
+    }
 }

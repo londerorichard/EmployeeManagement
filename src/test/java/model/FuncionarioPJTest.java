@@ -37,4 +37,34 @@ public class FuncionarioPJTest {
 
         assertEquals(360.00, funcionarioPJ.calcularTributavel(), 0.001);
     }
+
+    @Test
+    void shouldCalculateRemunerationWithMultipleProjects() {
+        FuncionarioPJ funcionario = new FuncionarioPJ(
+                1, "Carlos Silva", "529.982.247-25",
+                2500.00, 3
+        );
+
+        assertEquals(7500.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithOneProject() {
+        FuncionarioPJ funcionario = new FuncionarioPJ(
+                2, "Maria Silva", "111.444.777-35",
+                2500.00, 1
+        );
+
+        assertEquals(2500.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithoutProjects() {
+        FuncionarioPJ funcionario = new FuncionarioPJ(
+                3, "Joao Silva", "529.982.247-25",
+                2500.00, 0
+        );
+
+        assertEquals(0.00, funcionario.calcularRemuneracao(), 0.001);
+    }
 }

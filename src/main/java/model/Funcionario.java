@@ -95,4 +95,6 @@ public abstract class Funcionario implements Identificavel {
     public String getNome() {
         return nome;
     }
+
+    public abstract double calcularRemuneracao();
 }

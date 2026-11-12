@@ -26,4 +26,9 @@ public class FuncionarioPJ extends Funcionario implements Tributavel {
     public double calcularTributavel() {
         return valorProjeto * quantidadeProjetos * 0.06;
     }
+
+    @Override
+    public double calcularRemuneracao() {
+        return valorProjeto * quantidadeProjetos;
+    }
 }

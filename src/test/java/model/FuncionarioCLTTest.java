@@ -60,4 +60,41 @@ public class FuncionarioCLTTest {
 
         assertEquals(350.00, funcionarioCLT.calcularTributavel(), 0.001);
     }
+
+    @Test
+    void shouldCalculateRemunerationWithMultipleBenefits() {
+        HashMap<String, Double> beneficios = new HashMap<>();
+        beneficios.put("Alimentacao", 400.00);
+        beneficios.put("Transporte", 200.00);
+
+        FuncionarioCLT funcionario = new FuncionarioCLT(
+                1, "Maria Silva", "111.444.777-35",
+                3000.00, beneficios
+        );
+
+        assertEquals(3600.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithoutBenefits() {
+        FuncionarioCLT funcionario = new FuncionarioCLT(
+                2, "Joao Silva", "529.982.247-25",
+                3000.00, null
+        );
+
+        assertEquals(3000.00, funcionario.calcularRemuneracao(), 0.001);
+    }
+
+    @Test
+    void shouldCalculateRemunerationWithOneBenefit() {
+        HashMap<String, Double> beneficios = new HashMap<>();
+        beneficios.put("Alimentacao", 400.00);
+
+        FuncionarioCLT funcionario = new FuncionarioCLT(
+                3, "Ana Souza", "111.444.777-35",
+                3000.00, beneficios
+        );
+
+        assertEquals(3400.00, funcionario.calcularRemuneracao(), 0.001);
+    }
 }
