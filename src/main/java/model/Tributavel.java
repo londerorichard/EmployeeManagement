@@ -1,4 +1,5 @@
 package model;
 
-public class Tributavel {
+public interface Tributavel {
+    double calcularTributavel();
 }

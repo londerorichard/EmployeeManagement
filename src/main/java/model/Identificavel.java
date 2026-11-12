@@ -1,4 +1,5 @@
 package model;
 
-public class Identificavel {
+public interface Identificavel {
+    int getId();
 }

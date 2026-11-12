@@ -23,4 +23,18 @@ public class FuncionarioPJTest {
         assertEquals(1500.00, funcionario.getValorProjeto(), 0.001);
         assertEquals(4, funcionario.getQuantidadeProjetos());
     }
+
+    @Test
+    void shouldCalculateTaxes() {
+
+        FuncionarioPJ funcionarioPJ = new FuncionarioPJ(
+                3,
+                "Joao Silva",
+                "529.982.247-25",
+                2000.00,
+                3
+        );
+
+        assertEquals(360.00, funcionarioPJ.calcularTributavel(), 0.001);
+    }
 }

@@ -2,7 +2,7 @@ package model;
 
 import java.util.HashMap;
 
-public class FuncionarioCLT extends Funcionario {
+public class FuncionarioCLT extends Funcionario implements Tributavel {
 
     private HashMap<String, Double> beneficios;
 
@@ -19,5 +19,10 @@ public class FuncionarioCLT extends Funcionario {
 
     public HashMap<String, Double> getBeneficios() {
         return new HashMap<>(beneficios);
+    }
+
+    @Override
+    public double calcularTributavel() {
+        return getSalarioBase() * 0.10;
     }
 }

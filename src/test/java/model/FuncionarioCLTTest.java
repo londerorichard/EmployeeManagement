@@ -44,4 +44,20 @@ public class FuncionarioCLTTest {
 
         assertTrue(funcionarioCLT.getBeneficios().isEmpty());
     }
+
+    @Test
+    void shouldCalculateTaxes() {
+
+        FuncionarioCLT funcionarioCLT = new FuncionarioCLT(
+                2,
+                "Maria Silva",
+                "111.444.777-35",
+                3500.00,
+                null
+        );
+
+        funcionarioCLT.calcularTributavel();
+
+        assertEquals(350.00, funcionarioCLT.calcularTributavel(), 0.001);
+    }
 }

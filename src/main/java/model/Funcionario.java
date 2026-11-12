@@ -1,6 +1,6 @@
 package model;
 
-public class Funcionario {
+public abstract class Funcionario implements Identificavel {
 
     private int id;
     private String nome;
@@ -79,6 +79,7 @@ public class Funcionario {
         return secondDigit == Character.getNumericValue(digits.charAt(10));
     }
 
+    @Override
     public int getId() {
         return id;
     }

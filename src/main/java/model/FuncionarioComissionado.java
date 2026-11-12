@@ -1,6 +1,6 @@
 package model;
 
-public class FuncionarioComissionado extends Funcionario {
+public class FuncionarioComissionado extends Funcionario implements Tributavel {
 
     private double vendas;
     private double percentualComissao;
@@ -21,5 +21,12 @@ public class FuncionarioComissionado extends Funcionario {
 
     public double getPercentualComissao() {
         return percentualComissao;
+    }
+
+    @Override
+    public double calcularTributavel() {
+        double remuneracao = getSalarioBase() + vendas * (percentualComissao / 100);
+
+        return remuneracao * 0.10;
     }
 }

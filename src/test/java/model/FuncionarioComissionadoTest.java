@@ -25,4 +25,19 @@ public class FuncionarioComissionadoTest {
         assertEquals(10000.00, funcionario.getVendas(), 0.001);
         assertEquals(10.0, funcionario.getPercentualComissao(), 0.001);
     }
+
+    @Test
+    void shouldCalculateTaxes() {
+
+        FuncionarioComissionado funcionario = new FuncionarioComissionado(
+                4,
+                "Ana Souza",
+                "111.444.777-35",
+                2000.00,
+                10000.00,
+                10.0
+        );
+
+        assertEquals(300.00, funcionario.calcularTributavel(), 0.001);
+    }
 }

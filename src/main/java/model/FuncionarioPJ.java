@@ -1,6 +1,6 @@
 package model;
 
-public class FuncionarioPJ extends Funcionario {
+public class FuncionarioPJ extends Funcionario implements Tributavel {
 
     private double valorProjeto;
     private int quantidadeProjetos;
@@ -20,5 +20,10 @@ public class FuncionarioPJ extends Funcionario {
 
     public int getQuantidadeProjetos() {
         return quantidadeProjetos;
+    }
+
+    @Override
+    public double calcularTributavel() {
+        return valorProjeto * quantidadeProjetos * 0.06;
     }
 }
