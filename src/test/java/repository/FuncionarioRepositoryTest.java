@@ -1,20 +1,26 @@
-package model;
+package repository;
 
+import model.Funcionario;
+import model.FuncionarioCLT;
+import model.FuncionarioComissionado;
+import model.FuncionarioPJ;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import exception.FuncionarioNaoEncontradoException;
+import exception.FuncionarioJaCadastradoException;
 
 import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FuncionarioManagerTest {
+class FuncionarioRepositoryTest {
 
-    private FuncionarioManager manager;
+    private FuncionarioRepository manager;
 
     @BeforeEach
     void setUp() {
-        manager = new FuncionarioManager();
+        manager = new FuncionarioRepository();
 
         manager.addFuncionario(new FuncionarioCLT(
                 1, "Maria Silva", "111.444.777-35",
