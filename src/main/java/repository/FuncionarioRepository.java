@@ -7,6 +7,7 @@ import model.Funcionario;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import java.util.ArrayList;
 
 public class FuncionarioRepository {
 
@@ -16,9 +17,8 @@ public class FuncionarioRepository {
         this.funcionarios = new HashMap<>();
     }
 
-    @Override
-    public String toString() {
-        return funcionarios.toString();
+    public List<Funcionario> listarFuncionarios() {
+        return new ArrayList<>(funcionarios.values());
     }
 
     public void addFuncionario(Funcionario funcionario) {
@@ -34,6 +34,21 @@ public class FuncionarioRepository {
         }
 
         funcionarios.put(funcionario.getId(), funcionario);
+    }
+
+    public void removerFuncionario(int id) {
+
+        if (id <= 0) {
+            throw new IllegalArgumentException("Invalid employee ID.");
+        }
+
+        if (!funcionarios.containsKey(id)) {
+            throw new FuncionarioNaoEncontradoException(
+                    "Employee not found."
+            );
+        }
+
+        funcionarios.remove(id);
     }
 
     public Funcionario buscarFuncionario(int id) {
